@@ -8,14 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import static org.mockito.ArgumentMatchers.any;
-
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -43,8 +39,6 @@ public class CentroSaludPruebaUnitaria {
                 ).collect(Collectors.toList()));
         Assertions.assertEquals(3, iCentroSaludNegocio.listar().size());
     }
-
-
 
     @Test
     void testListarConCalificaciones(){
