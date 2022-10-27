@@ -5,6 +5,7 @@ import com.upc.salud.repositorio.IMinisterioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -35,13 +36,22 @@ public class CentroSaludNegocio implements  ICentroSaludNegocio{
     }
 
     @Override
-    public List<CentroSalud> listarPorTipo(String criterio) {
-        return iMinisterioRepositorio.findByTipoEquals(criterio);
+    public CentroSalud buscar(Long codigo) throws Exception {
+        return iMinisterioRepositorio.findById(codigo).orElseThrow(() -> new Exception("No se encontro Ministerio"));
     }
 
     @Override
-    public CentroSalud buscar(Long codigo) throws Exception {
-        return iMinisterioRepositorio.findById(codigo).orElseThrow(() -> new Exception("No se encontro Ministerio"));
+    public List<CentroSalud> listarPorTipo(String tipo) {
+        List<CentroSalud> listado;
+        listado = iMinisterioRepositorio.findAll();
+        var listadoFiltrado = new ArrayList<CentroSalud>();
+
+        for (CentroSalud centroSalud:listado) {
+            if (centroSalud.getTipo().contains(tipo)) {
+                listadoFiltrado.add(centroSalud);
+            }
+        }
+        return listadoFiltrado;
     }
 
     @Override
@@ -58,6 +68,6 @@ public class CentroSaludNegocio implements  ICentroSaludNegocio{
     @Override
     public String obtenerResultadoFinal(CentroSalud centroSalud) {
         double calificacion = calcularCalificacion(centroSalud);
-        return calificacion >= 80 ? "APROBADO" : "DESAPROBADO";
+        return calificacion >= 80 ? "APROBADO" : "RECHAZADO";
     }
 }

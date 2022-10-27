@@ -6,6 +6,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface IMinisterioRepositorio extends JpaRepository<CentroSalud, Long> {
-
-    public List<CentroSalud> findByTipoEquals(String criterio);
 }
