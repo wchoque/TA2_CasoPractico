@@ -1,28 +1,40 @@
 package com.upc.salud.entidades;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Data
 @Entity
-@Setter
-@Getter
-@Table(name = "CENTRO_SALUD")
+@Table(name = "CENTROSALUD")
 public class CentroSalud {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codigo")
     private Long codigo;
+
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "tipo")
     private String tipo;
+
+    @Column(name = "calificacionInfraestructura")
     private int calificacionInfraestructura;
+
+    @Column(name = "calificacionServicios")
     private int calificacionServicios;
-    private int ambulancias;
 
-    public CentroSalud(){}
+    @Column(name = "ambulancias")
+    private boolean ambulancias;
 
-    public CentroSalud(Long codigo, String nombre, String tipo, int calificacionInfraestructura, int calificacionServicios, int ambulancias) {
+    private transient double calificacion;
+
+    public CentroSalud() {
+    }
+
+    public CentroSalud(Long codigo, String nombre, String tipo, int calificacionInfraestructura, int calificacionServicios, boolean ambulancias) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.tipo = tipo;
