@@ -14,7 +14,7 @@ class SaludApplicationTests {
 
 	@Test
 	void testRegistrarCentroSalud(){
-		for (int i = 0; i <=4; i++) {
+		for (int i = 0; i <= 4; i++) {
 			CentroSalud centroSalud = new CentroSalud();
 			centroSalud.setNombre("GRAU");
 			centroSalud.setTipo("HOSPITAL");
@@ -30,7 +30,6 @@ class SaludApplicationTests {
 		CentroSalud centroSalud = new CentroSalud();
 		centroSalud.setCodigo(1L);
 		centroSalud.setNombre("ALMENARA");
-		centroSalud.setNombre("CLINICA");
 		centroSalud.setTipo("CLINICA");
 		centroSalud.setCalificacionInfraestructura(50);
 		centroSalud.setCalificacionServicios(46);

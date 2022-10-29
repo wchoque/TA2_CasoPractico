@@ -84,7 +84,7 @@ public class CentroSaludPruebaUnitaria {
 
     @Test
     void testObtenerResultadoFinalDesaprobado(){
-        CentroSalud centroSalud = 	new CentroSalud(2L, "ANGLOAMERICANA", "CLINICA", 50, 40, false);
+        CentroSalud centroSalud = new CentroSalud(2L, "ANGLOAMERICANA", "CLINICA", 50, 40, false);
         when(mockRepositorio.findById(1L)).thenReturn(Optional.of(centroSalud));
         Assertions.assertEquals("RECHAZADO",iCentroSaludNegocio.obtenerResultadoFinal(centroSalud));
     }
