@@ -1,13 +1,13 @@
-package com.upc.salud;
+package com.upc.pregunta;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SaludApplication {
+public class PreguntaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SaludApplication.class, args);
+		SpringApplication.run(PreguntaApplication.class, args);
 	}
 
 }
